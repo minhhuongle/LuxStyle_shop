@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-main: #08090e;
+  --bg-card: #11131c;
+  --border-subtle: #27272a;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --primary-accent: #d4af37;
+  --primary-glow: rgba(212, 175, 55, 0.35);
+  --secondary-accent: #f7e7ce;
+}
+
+html.light {
+  color-scheme: light;
+  --bg-main: #f7f8fc;
+  --bg-card: #ffffff;
+  --border-subtle: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   ✨ LUXURY & SHIMMERING BACKGROUND ANIMATIONS & GLASS EFFECTS
+   ========================================================================== */
+
+@keyframes twinkleStar {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.65) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15) rotate(45deg);
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+  }
+}
+
+@keyframes twinkleStarSlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 10px rgba(255, 235, 175, 0.7));
+  }
+}
+
+@keyframes floatSlow1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, -25px) scale(1.08);
+  }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-35px, 30px) scale(1.12);
+  }
+}
+
+@keyframes floatSlow3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(25px, 20px) scale(0.95);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes goldAuraPulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translateX(-50%) scale(0.98);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.04);
+  }
+}
+
+.animate-twinkle-fast {
+  animation: twinkleStar 3.2s ease-in-out infinite;
+}
+
+.animate-twinkle-normal {
+  animation: twinkleStar 4.8s ease-in-out infinite;
+}
+
+.animate-twinkle-slow {
+  animation: twinkleStarSlow 6.5s ease-in-out infinite;
+}
+
+.animate-float-1 {
+  animation: floatSlow1 20s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 24s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatSlow3 28s ease-in-out infinite;
+}
+
+.animate-gold-pulse {
+  animation: goldAuraPulse 7s ease-in-out infinite;
+}
+
+/* Luxury Frosted Glass Surface */
+.luxury-glass {
+  background: rgba(18, 20, 30, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+html.light .luxury-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Luxury Radiant Shimmer Sweep */
+.luxury-shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.luxury-shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.06),
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 215, 0, 0.06),
+    transparent
+  );
+  animation: shimmerSweep 8s infinite;
+  pointer-events: none;
+}
+
